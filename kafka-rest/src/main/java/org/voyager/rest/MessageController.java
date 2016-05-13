@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.json.JSONObject;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,7 @@ public class MessageController {
 	}
 	
     @RequestMapping(value="/message", method=RequestMethod.POST)
+    @CrossOrigin(origins = "*")
     public void send(@RequestParam(value="message") String message, HttpServletRequest request) {
     	
     	JSONObject json = new JSONObject(message);
