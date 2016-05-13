@@ -1,0 +1,12 @@
+# run logstash kafka input
+
+C:\dev\tools\logstash-2.3.1\bin>logstash -f \\OFFICE\Users\Scott\logstash\kafka.conf
+
+# wipe solr
+
+curl http://localhost:8983/solr/update --data "<delete><query>*:*</query></delete>"" -H "Content-type:text/xml; charset=utf-8"
+curl http://localhost:8983/solr/update --data "<commit/>"" -H "Content-type:text/xml; charset=utf-8"
+
+# run zookeeper
+
+C:\dev\tools\kafka_2.11-0.9.0.1>.\bin\windows\zookeeper-server-start .\config\zookeeper.properties
